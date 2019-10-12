@@ -1,0 +1,29 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+      - image: mongo
+      - image: djfarrelly/maildev
+
+    steps:
+      - checkout
+      - run:
+          name: Installing Dependencies
+          command: npm install
+
+      - run:
+          name: Setup auth keys
+          command: mkdir -p certs; cd certs; touch auth; touch auth.pub; ls -l; echo $JWT_PRIVATE > auth; echo $JWT_PUBLIC > auth.pub
+
+      - run:
+          name: Run Tests
+          command: npm run test:report
+
+      - store_test_results:
+          path: test-results
