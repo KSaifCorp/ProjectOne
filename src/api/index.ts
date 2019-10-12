@@ -1,6 +1,8 @@
 import * as http from 'http'
 import * as debug from 'debug'
 
+require('../config/connection')
+
 import App from './app'
 
 const PORT = process.argv[3] || 3002;
