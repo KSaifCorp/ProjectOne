@@ -1,0 +1,80 @@
+{
+  "name": "projetc-1",
+  "version": "1.0.0",
+  "description": "my project description",
+  "main": "index.js",
+  "scripts": {
+    "compile": "./node_modules/.bin/tsc",
+    "test": "mocha --exit -r ts-node/register test/**/**/*.spec.ts",
+    "watch": "./node_modules/.bin/tsc -w",
+    "start": "./node_modules/.bin/tsc && pm2 start microservices.json",
+    "restart": "./node_modules/.bin/tsc && pm2 restart microservices.json",
+    "test:report": "MOCHA_FILE=./test-results/mocha/results.xml mocha --exit --reporter mocha-junit-reporter -r ts-node/register test/**/**/*.spec.ts",
+    "test:coverage": "nyc -e '.ts' --include-all-sources --r html -r lcov -r text npm run test",
+    "lint:check": "./node_modules/.bin/tslint -p tsconfig.json -c tslint.json",
+    "lint:fix": "./node_modules/.bin/tslint -p tsconfig.json --fix",
+    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json"
+  },
+  "author": "Kermoun Saifeddine",
+  "license": "ISC",
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "typings",
+      "**/*.test.ts",
+      "src/crons",
+      "src/scripts",
+      "src/rulesengine",
+      "src/mapper",
+      "src/interfaces"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/chai-http": "^4.2.0",
+    "@types/debug": "^4.1.5",
+    "@types/express": "^4.17.1",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.7.12",
+    "@types/supertest": "^2.0.8",
+    "chai": "^4.2.0",
+    "docdash": "^1.1.1",
+    "http-debug": "^0.1.2",
+    "jsdoc": "^3.6.3",
+    "mocha": "^6.2.1",
+    "mocha-junit-reporter": "^1.23.1",
+    "nyc": "^14.1.1",
+    "sinon-mongoose": "^2.3.0",
+    "supertest": "^4.0.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonschema": "^1.2.4",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.4",
+    "morgan": "^1.9.1",
+    "bcrypt": "latest"
+  }
+}

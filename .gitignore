@@ -1,0 +1,6 @@
+certs
+node_modules
+dist
+logs
+docs
+.idea
