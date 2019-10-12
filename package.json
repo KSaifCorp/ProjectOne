@@ -9,7 +9,7 @@
     "watch": "./node_modules/.bin/tsc -w",
     "start": "./node_modules/.bin/tsc && pm2 start microservices.json",
     "restart": "./node_modules/.bin/tsc && pm2 restart microservices.json",
-    "test:report": "MOCHA_FILE=./test-results/mocha/results.xml mocha --exit --reporter mocha-junit-reporter -r ts-node/register test/**/**/*.spec.ts",
+    "test:report": "mocha --reporter-options mochaFile=./test/results/mocha/results.xml --reporter mocha-junit-reporter -r ts-node/register test/**/**/*.spec.ts --exit",
     "test:coverage": "nyc -e '.ts' --include-all-sources --r html -r lcov -r text npm run test",
     "lint:check": "./node_modules/.bin/tslint -p tsconfig.json -c tslint.json",
     "lint:fix": "./node_modules/.bin/tslint -p tsconfig.json --fix",

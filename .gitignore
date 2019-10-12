@@ -4,3 +4,6 @@ dist
 logs
 docs
 .idea
+coverage
+.nyc_output
+test/results/*
