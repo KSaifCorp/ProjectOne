@@ -23,7 +23,4 @@ jobs:
 
       - run:
           name: Run Tests
-          command: npm run test:report
-
-      - store_test_results:
-          path: test-results
+          command: npm run test
