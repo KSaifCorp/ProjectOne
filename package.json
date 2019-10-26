@@ -51,6 +51,7 @@
     "@types/mocha": "^5.2.7",
     "@types/morgan": "^1.7.37",
     "@types/node": "^12.7.12",
+    "@types/socket.io-client": "^1.4.32",
     "@types/supertest": "^2.0.8",
     "chai": "^4.2.0",
     "docdash": "^1.1.1",
@@ -60,13 +61,17 @@
     "mocha-junit-reporter": "^1.23.1",
     "nyc": "^14.1.1",
     "sinon-mongoose": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "supertest": "^4.0.2",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
+    "axios": "^0.19.0",
+    "bcrypt": "latest",
     "body-parser": "^1.19.0",
+    "bull": "^3.11.0",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
@@ -76,6 +81,6 @@
     "moment": "^2.24.0",
     "mongoose": "^5.7.4",
     "morgan": "^1.9.1",
-    "bcrypt": "latest"
+    "socket.io": "^2.3.0"
   }
 }

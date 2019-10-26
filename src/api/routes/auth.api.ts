@@ -261,5 +261,5 @@ export class AuthApi {
 
 }
 
-const authApi = new AuthApi();
+const authApi = new AuthApi()
 export default authApi.router

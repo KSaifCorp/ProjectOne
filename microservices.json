@@ -13,5 +13,20 @@
     "max_restarts": 10,
     "min_uptime": "5000",
     "time": true
+  },
+  {
+    "script": "dist/services/SocketService/socket.worker.js",
+    "args": [
+      "-p",
+      "5000"
+    ],
+    "name": "worker.socket",
+    "exec_mode": "cluster",
+    "watch": false,
+    "max_memory_restart": "500M",
+    "instances": 1,
+    "max_restarts": 10,
+    "min_uptime": "5000",
+    "time": true
   }
 ]
